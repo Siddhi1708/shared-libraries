@@ -1,4 +1,5 @@
-def call(String url, String branch) {
-    echo "Cloning repository: ${url} (branch: ${branch})"
-    git branch: "${branch}", url: "${url}"
+def call(String branch, String repo, String githubCreds) {
+    stage('clone') {
+        git branch: branch, credentialsId: githubCreds, url: repo
+    }
 }
