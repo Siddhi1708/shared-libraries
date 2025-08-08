@@ -1,7 +1,7 @@
-def call(String composeDir = '.') {
-    echo 'Deploying application with Docker Compose...'
-    dir(composeDir) {
+def call() {
+    stage('Deploy with Docker Compose') {
+        echo 'Deploying application with Docker Compose...'
         sh 'docker-compose up -d'
+        echo 'Application deployed successfully.'
     }
-    echo 'Application deployed successfully.'
 }
